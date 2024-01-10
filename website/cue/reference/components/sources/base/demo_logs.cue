@@ -184,6 +184,11 @@ base: components: sources: demo_logs: configuration: {
 		description: "The format of the randomly generated output."
 		required:    true
 		type: string: enum: {
+			aws_elb: """
+				Randomly generated logs in [Apache common][apache_common] format.
+
+				[aws_alb]: https://httpd.apache.org/docs/current/logs.html#common
+				"""
 			apache_common: """
 				Randomly generated logs in [Apache common][apache_common] format.
 

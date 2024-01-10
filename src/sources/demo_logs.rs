@@ -116,6 +116,11 @@ pub enum OutputFormat {
     /// Randomly generated logs in [Apache common][apache_common] format.
     ///
     /// [apache_common]: https://httpd.apache.org/docs/current/logs.html#common
+    AwsElb,
+
+    /// Randomly generated logs in [Apache common][apache_common] format.
+    ///
+    /// [apache_common]: https://httpd.apache.org/docs/current/logs.html#common
     ApacheCommon,
 
     /// Randomly generated logs in [Apache error][apache_error] format.
@@ -140,6 +145,7 @@ pub enum OutputFormat {
     /// [json]: https://en.wikipedia.org/wiki/JSON
     #[derivative(Default)]
     Json,
+
 }
 
 const fn lines_example() -> [&'static str; 2] {
@@ -160,6 +166,7 @@ impl OutputFormat {
             Self::Syslog => syslog_5424_log_line(),
             Self::BsdSyslog => syslog_3164_log_line(),
             Self::Json => json_log_line(),
+            Self::AwsElb => aws_elb_log_line(),
         }
     }
 
